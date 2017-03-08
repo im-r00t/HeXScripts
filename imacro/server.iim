@@ -1,0 +1,36 @@
+'This script buys a server and upradges it
+
+    VERSION BUILD=8940826 RECORDER=FX
+    SET !EXTRACT_TEST_POPUP NO
+    SET !ERRORIGNORE YES
+    SET !ERRORCONTINUNE YES
+    TAB T=1
+    SET !DATASOURCE C:\he\numb.txt
+    'You Will need to edit this line, This is just a txt file with one number per line, there will be an example lower.
+    SET !DATASOURCE_COLUMNS 1
+    'This indicates how many columns are used in the source file
+    SET !DATASOURCE_LINE {{!LOOP}}
+    'Allows the script to read the next line when looping
+    URL GOTO=https://legacy.hackerexperience.com/hardware?opt=buy
+    'This takes you to the server buying page to start off
+    wait seconds = 1
+    'This indicates the wait times needed in the script to allow pages loading, I will not comment on them again.
+    TAG POS=1 TYPE=INPUT:SUBMIT FORM=ACTION:#buy ATTR=*
+    'This clicks the buy button to buy a new server
+    wait seconds = 2
+    TAG POS=1 TYPE=INPUT:SUBMIT FORM=ACTION:# ATTR=*
+    'After a 2 second wait it will click the accept button to finish buying the server
+    wait seconds = .5
+    URL GOTO=https://legacy.hackerexperience.com/hardware?opt=upgrade
+    'This returns you to the server upradging page so that the next process can start
+    wait seconds = 1
+    TAG POS=1 TYPE=DIV ATTR=TXT:Server<SP>#{{!col1}}
+    The {{!col1}} in this string is saying to pull from the source file, column 1, this is how we access that numbered external drive
+    wait seconds = 2
+    TAG POS=1 TYPE=SPAN ATTR=ID:10000
+    'This buys the largest HDD, 10Gb in size
+    wait seconds = 2
+    TAG POS=1 TYPE=INPUT:SUBMIT FORM=ID:modal-form ATTR=ID:modal-submit
+    'Submits the buy function
+    wait seconds = 2
+    'Wait time is for the loop, if you were running one
