@@ -1,0 +1,17 @@
+'This macro works great for creating alts
+VERSION BUILD=8940826 RECORDER=FX
+SET !EXTRACT_TEST_POPUP NO
+SET !ERRORIGNORE YES
+SET !ERRORCONTINUNE YES
+TAB T=1
+URL GOTO=https://legacy.hackerexperience.com/university?opt=certification&learn=1
+'This goes to the certification page to start the process
+'Below here just clicks buttons, nothing important
+TAG POS=1 TYPE=A ATTR=TXT:Show<SP>me<SP>the<SP>softwares
+TAG POS=1 TYPE=A ATTR=TXT:What<SP>if<SP>I<SP>need<SP>help?
+TAG POS=1 TYPE=A ATTR=TXT:Complete<SP>this<SP>certification
+TAG POS=2 TYPE=SPAN ATTR=ID:buy
+TAG POS=1 TYPE=SPAN ATTR=ID:learn
+TAG POS=1 TYPE=A ATTR=TXT:Don't<SP>forget<SP>the<SP>logs
+TAG POS=1 TYPE=A ATTR=TXT:A<SP>quick<SP>word<SP>on<SP>profit
+TAG POS=1 TYPE=A ATTR=TXT:Complete<SP>this<SP>certification
