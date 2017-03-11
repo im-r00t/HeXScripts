@@ -25,7 +25,7 @@
     'This returns you to the server upradging page so that the next process can start
     wait seconds = 1
     TAG POS=1 TYPE=DIV ATTR=TXT:Server<SP>#{{!col1}}
-    The {{!col1}} in this string is saying to pull from the source file, column 1, this is how we access that numbered external drive
+    The {{!col1}} in this string is saying to pull from the source file, column 1, this is how we access that numbered server
     wait seconds = 2
     TAG POS=1 TYPE=SPAN ATTR=ID:10000
     'This buys the largest HDD, 10Gb in size
